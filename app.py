@@ -9,10 +9,10 @@ def success(name):
 @app.route('/login' , methods = ['GET','POST'])
 def login():
     if request.method=='POST':
-        user=request.form["ab"]
+        user=request.form["abcd"]
         return redirect(url_for("success", name=user))
     else:
-        user=request.args.get('ab')
+        user=request.args.get('abcd')
         return redirect(url_for('success', name=user))
 
 if __name__ =='__main__':
