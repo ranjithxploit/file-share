@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -8,4 +8,12 @@ def success(name):
 
 @app.route('/login' , methods = ['GET','POST'])
 def login():
-    if 
+    if request.method=='POST':
+        user=request.form["ab"]
+        return redirect(url_for("success", name=user))
+    else:
+        user=request.args.get('ab')
+        return redirect(url_for('success', name=user))
+
+if __name__ =='main':
+    app.run(debug=True)        
