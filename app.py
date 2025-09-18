@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for, request
 
 app = Flask(__name__)
 
-@app.route('/success/yes')
+@app.route('/success/index')
 def success(name):
     return "welcome to %s!" %name
 
@@ -15,5 +15,5 @@ def login():
         user=request.args.get('ab')
         return redirect(url_for('success', name=user))
 
-if __name__ =='main':
-    app.run(debug=True)        
+if __name__ =='__main__':
+    app.run(debug=True)
