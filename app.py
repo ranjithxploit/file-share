@@ -1,19 +1,20 @@
-from flask import Flask, redirect, url_for, request
-
+from flask import Flask
 app = Flask(__name__)
 
-@app.route('/success/index')
-def success(name):
-    return "welcome to %s!" %name
+#create templates index.html reading code
 
-@app.route('/login' , methods = ['GET','POST'])
+
+@app.route('/')
+def hello_world():
+    return "hello"
+
+@app.route('/admin')
+def admin_panel():
+    return "this is admin panel"
+
+@app.route('/login')
 def login():
-    if request.method=='POST':
-        user=request.form["abcd"]
-        return redirect(url_for("success", name=user))
-    else:
-        user=request.args.get('abcd')
-        return redirect(url_for('success', name=user))
+    return "Login page"
 
-if __name__ =='__main__':
-    app.run(debug=True)
+if  __name__== '__main__':
+    app.run()
